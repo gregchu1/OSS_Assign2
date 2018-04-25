@@ -32,11 +32,15 @@ int main(void)
 //파일 1의 정보를 가져오는 함수 작성
 void filestat1(void)
 {
+	struct stat buf;
+	stat("text1", &buf);
 }
 
 //파일 2의 정보를 가져오는 함수 작성
 void filestat2(void)
 {
+	struct stat buf2;
+	stat("text2", &buf2);
 }
 
 //파일 1의 시간 정보를 가져오는 함수 작성
