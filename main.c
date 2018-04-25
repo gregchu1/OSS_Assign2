@@ -32,11 +32,28 @@ int main(void)
 //파일 1의 정보를 가져오는 함수 작성
 void filestat1(void)
 {
+	int check = 0;
+	check = stat("text1", &stat1);
+	
+	if(check != 0)
+	{
+		printf("Error\n");
+		return 0;
+	}
+	
 }
 
 //파일 2의 정보를 가져오는 함수 작성
 void filestat2(void)
-{
+{	
+	int check = 0;
+	check = stat("text2", &stat2);
+	
+	if(check != 0)
+	{
+		printf("Error\n");
+		return 0;
+	}
 }
 
 //파일 1의 시간 정보를 가져오는 함수 작성
