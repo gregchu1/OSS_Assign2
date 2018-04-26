@@ -56,7 +56,6 @@ void filetime1(void)
 
 	time1 = localtime(&buf.st_mtime);
 
-
 	return;
 }
 
@@ -76,7 +75,6 @@ void filetime2(void)
 	}
 
 	time2 = localtime(&buf.st_mtime);
-
 
 	return;
 }
