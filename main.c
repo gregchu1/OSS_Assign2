@@ -101,7 +101,7 @@ void blockcmp(void)
 			printf("text1 is bigger\n");
 	else
 		printf("text2 is bigger\n");
-	returnl
+	return;
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
