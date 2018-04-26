@@ -23,9 +23,13 @@ int main(void)
 	filestat2();
 	filetime1();
 	filetime2();
+	printf("size compare\n");
 	sizecmp();
+	printf("block compare\n");
 	blockcmp();
+	printf("date compare\n");
 	datecmp();
+	printf("time compare\n");
 	timecmp();
 }
 
@@ -40,7 +44,6 @@ void filestat1(void)
 		printf("Error\n");
 		return 0;
 	}
-	
 }
 
 //파일 2의 정보를 가져오는 함수 작성
@@ -69,6 +72,25 @@ void filetime2(void)
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(void)
 {
+	FILE *file1;
+	file1 = fopen("text1", "r");
+	fseek(file1, 0, SEEK_END);
+	int fileLength1 = ftell(file1);
+
+	FILE *file2;
+	file2 = fopen("text2"", "r");
+	fseek(file2, 0, SEEK_END);
+	int fileLength2 = ftell(file2);
+
+	if(fileLength1 > fileLength2)
+		{
+		printf("text1 is bigger\n");
+		}
+	else
+		printf("text2 is bigger\n");
+	fclose(file1);
+	fclose(file2);
+	return;
 }
 
 //두 개의 파일 블락 수를 비교하는 함수 작성
