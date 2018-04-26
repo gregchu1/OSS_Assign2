@@ -65,11 +65,41 @@ void filestat2(void)
 //파일 1의 시간 정보를 가져오는 함수 작성
 void filetime1(void)
 {
+	struct tm* time1;
+	struct stat buf;
+	int check = 0;
+
+	stat("text1", &buf);
+
+	check = stat("text1", &stat1);
+
+	if (check != 0) {
+		printf("Error\n");
+	}
+
+	time1 = localtime(&buf.st_mtime);
+
+	return;
 }
 
 //파일 2의 시간 정보를 가져오는 함수 작성
 void filetime2(void)
 {
+	struct tm* time2;
+	struct stat buf;
+	int check = 0;
+
+	stat("text2", &buf);
+
+	check = stat("text2", &stat2);
+
+	if (check != 0) {
+		printf("Error\n");
+	}
+
+	time2 = localtime(&buf.st_mtime);
+
+	return;
 }
 
 //두 개의 파일 크기를 비교하는 함수 작성
