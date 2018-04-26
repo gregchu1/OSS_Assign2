@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -73,8 +72,8 @@ void filetime2(void)
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(void)
 {
-	int text1_size;
-	int text2_size;
+	long long int text1_size;
+	long long int text2_size;
 
 	text1_size = stat1.st_size;
 	text2_size = stat2.st_size;
@@ -88,7 +87,16 @@ void sizecmp(void)
 //두 개의 파일 블락 수를 비교하는 함수 작성
 void blockcmp(void)
 {
+	long long int text1_block_size;
+	long long int text2_block_size;
 
+	text1_block_size = stat1.st_blocks;
+	text2_block_size = stat2.st_blocks;
+
+	if(text1_block_size > text2_block_size)
+			printf("text1 is bigger\n");
+		else
+			printf("text2 is bigger\n");
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
