@@ -143,39 +143,26 @@ void blockcmp(void)
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
 void datecmp(void)
 {
-	// get file time data
-	filetime1();
-	filetime2();
-	// compare tm_year
-	if(time1->tm_year > time2->tm_year)
+	// compare tm_mon
+	if(time1->tm_mon > time2->tm_mon)
 		printf("time1 is early \n");
-	else if(time1->tm_year < time2->tm_year)
+	else if(time1->tm_mon < time2->tm_mon)
 		printf("time2 is early \n");
 	else{
-		// compare tm_mon
-		if(time1->tm_mon > time2->tm_mon)
+		// compare tm_mday
+		if(time1->tm_mday > time2->tm_mday)
 			printf("time1 is early \n");
-		else if(time1->tm_mon < time2->tm_mon)
+		else if(time1->tm_mday < time2->tm_mday)
 			printf("time2 is early \n");
-		else{
-			// compare tm_mday
-			if(time1->tm_mday > time2->tm_mday)
-				printf("time1 is early \n");
-			else if(time1->tm_mday < time2->tm_mday)
-				printf("time2 is early \n");
-			// dates are same
-			else
-				printf("same time \n");
-		}
+		// same date
+		else
+			printf("same time \n");
 	}
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성
 void timecmp(void)
 {
-	// get file time data
-	filetime1();
-	filetime2();
 	// compare hour
 	if(time1->tm_hour > time2->tm_hour)
 		printf("time1 is early \n");
@@ -187,15 +174,8 @@ void timecmp(void)
 			printf("time1 is early \n");
 		else if(time1->tm_min < time2->tm_min)
 			printf("time2 is early \n");
-		else{
-			// compare seconds
-			if(time1->tm_sec > time2->tm_sec)
-				printf("time1 is early \n");
-			else if(time1->tm_sec < time2->tm_sec)
-				printf("tome2 is early \n");
-			// times are same
-			else
-				printf("same time \n");
-		}
+		// same time
+		else
+			printf("same time \n");
 	}
 }
