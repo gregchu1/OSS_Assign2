@@ -65,27 +65,20 @@ void datecmp(void)
 	// get file time data
 	filetime1();
 	filetime2();
-	// compare tm_year 
-	if(time1->tm_year > time2->tm_year)
+	// compare tm_mon
+	if(time1->tm_mon > time2->tm_mon)
 		printf("time1 is early \n");
-	else if(time1->tm_year < time2->tm_year)
+	else if(time1->tm_mon < time2->tm_mon)
 		printf("time2 is early \n");
 	else{
-		// compare tm_mon
-		if(time1->tm_mon > time2->tm_mon)
+		// compare tm_mday
+		if(time1->tm_mday > time2->tm_mday)
 			printf("time1 is early \n");
-		else if(time1->tm_mon < time2->tm_mon)
+		else if(time1->tm_mday < time2->tm_mday)
 			printf("time2 is early \n");
-		else{
-			// compare tm_mday
-			if(time1->tm_mday > time2->tm_mday)
-				printf("time1 is early \n");
-			else if(time1->tm_mday < time2->tm_mday)
-				printf("time2 is early \n");
-			// dates are same
-			else
-				printf("same time \n");
-		}
+		// date is same
+		else
+			printf("same time \n");
 	}
 }
 
@@ -106,15 +99,8 @@ void timecmp(void)
 			printf("time1 is early \n");
 		else if(time1->tm_min < time2->tm_min)
 			printf("time2 is early \n");
-		else{
-			// compare seconds
-			if(time1->tm_sec > time2->tm_sec)
-				printf("time1 is early \n");
-			else if(time1->tm_sec < time2->tm_sec)
-				printf("tome2 is early \n");
-			// times are same
-			else
-				printf("same time \n");
-		}
+		// time is same
+		else
+			printf("same time \n");
 	}
 }
