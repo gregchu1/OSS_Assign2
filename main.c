@@ -114,8 +114,10 @@ void sizecmp(void)
 
 	if(text1_size > text2_size)
 		printf("text1 is bigger\n");
-	else
+	else if
 		printf("text2 is bigger\n");
+	else
+		printf("same size");
 	return;
 }
 
@@ -131,8 +133,10 @@ void blockcmp(void)
 
 	if(text1_block_size > text2_block_size)
 		printf("text1 is bigger\n");
-	else
+	else if
 		printf("text2 is bigger\n");
+	else
+			printf("same size");
 	return;
 }
 
