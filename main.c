@@ -25,10 +25,13 @@ int main(void)
 	filetime2();
 	printf("size compare\n");
 	sizecmp();
+	printf("\n");
 	printf("block compare\n");
 	blockcmp();
+	printf("\n");
 	printf("date compare\n");
 	datecmp();
+	printf("\n");
 	printf("time compare\n");
 	timecmp();
 }
@@ -82,6 +85,7 @@ void sizecmp(void)
 		printf("text1 is bigger\n");
 	else
 		printf("text2 is bigger\n");
+	return;
 }
 
 //두 개의 파일 블락 수를 비교하는 함수 작성
@@ -95,8 +99,9 @@ void blockcmp(void)
 
 	if(text1_block_size > text2_block_size)
 			printf("text1 is bigger\n");
-		else
-			printf("text2 is bigger\n");
+	else
+		printf("text2 is bigger\n");
+	returnl
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
