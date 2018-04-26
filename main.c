@@ -45,8 +45,8 @@ void filestat1(void)
 	if(check != 0)
 	{
 		printf("Error\n");
-		return;
 	}
+	return;
 }
 
 //파일 2의 정보를 가져오는 함수 작성
@@ -58,8 +58,8 @@ void filestat2(void)
 	if(check != 0)
 	{
 		printf("Error\n");
-		return ;
 	}
+	return;
 }
 
 //파일 1의 시간 정보를 가져오는 함수 작성
@@ -75,9 +75,10 @@ void filetime2(void)
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(void)
 {
+	//variable declare
 	long long int text1_size;
 	long long int text2_size;
-
+	//variable initialize
 	text1_size = stat1.st_size;
 	text2_size = stat2.st_size;
 
@@ -91,17 +92,18 @@ void sizecmp(void)
 //두 개의 파일 블락 수를 비교하는 함수 작성
 void blockcmp(void)
 {
+	//variable declare
 	long long int text1_block_size;
 	long long int text2_block_size;
-
-	text1_block_size = stat1.st_size;
-	text2_block_size = stat2.st_size;
+	//variable initialize
+	text1_block_size = stat1.st_blocks;
+	text2_block_size = stat2.st_blocks;
 
 	if(text1_block_size > text2_block_size)
 		printf("text1 is bigger\n");
 	else
 		printf("text2 is bigger\n");
-	return
+	return;
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
