@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -42,7 +43,7 @@ void filestat1(void)
 	if(check != 0)
 	{
 		printf("Error\n");
-		return 0;
+		return;
 	}
 }
 
@@ -55,7 +56,7 @@ void filestat2(void)
 	if(check != 0)
 	{
 		printf("Error\n");
-		return 0;
+		return;
 	}
 }
 
