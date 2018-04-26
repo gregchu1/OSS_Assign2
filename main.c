@@ -23,9 +23,16 @@ int main(void)
 	filestat2();
 	filetime1();
 	filetime2();
+	printf("size compare\n");
 	sizecmp();
+	printf("\n");
+	printf("block compare\n");
 	blockcmp();
+	printf("\n");
+	printf("date compare\n");
 	datecmp();
+	printf("\n");
+	printf("time compare\n");
 	timecmp();
 }
 
@@ -33,26 +40,25 @@ int main(void)
 void filestat1(void)
 {
 	int check = 0;
-	check = stat("text1", &stat1);
-	
+	check = stat("test1", &stat1);
+
 	if(check != 0)
 	{
 		printf("Error\n");
-		return 0;
+		return;
 	}
-	
 }
 
 //파일 2의 정보를 가져오는 함수 작성
 void filestat2(void)
-{	
+{
 	int check = 0;
 	check = stat("text2", &stat2);
-	
+
 	if(check != 0)
 	{
 		printf("Error\n");
-		return 0;
+		return ;
 	}
 }
 
@@ -69,30 +75,31 @@ void filetime2(void)
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(void)
 {
-	FILE *file1;
-	file1 = fopen("text1", "r");
-	fseek(file1, 0, SEEK_END);
-	int fileLength1 = ftell(file1);
-	
-	FILE *file2;
-	file2 = fopen("text2"", "r");
-	fseek(file2, 0, SEEK_END);
-	int fileLength2 = ftell(file2);
-	
-	if(fileLength1 > fileLength2)
-		{
+	long long int text1_size;
+	long long int text2_size;
+
+	text1_size = stat1.st_size;
+	text2_size = stat2.st_size;
+
+	if(text1_size > text2_size)
 		printf("text1 is bigger\n");
-		}
 	else
 		printf("text2 is bigger\n");
-	fclose(file1);
-	fclose(file2);
-
 }
 
 //두 개의 파일 블락 수를 비교하는 함수 작성
 void blockcmp(void)
 {
+	long long int text1_block_size;
+	long long int text2_block_size;
+
+	text1_block_size = stat1.st_size;
+	text2_block_size = stat2.st_size;
+
+	if(text1_block_size > text2_block_size)
+		printf("text1 is bigger\n");
+	else
+		printf("text2 is bigger\n");
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
@@ -101,7 +108,7 @@ void datecmp(void)
 	// get file time data
 	filetime1();
 	filetime2();
-	// compare tm_year 
+	// compare tm_year
 	if(time1->tm_year > time2->tm_year)
 		printf("time1 is early \n");
 	else if(time1->tm_year < time2->tm_year)
