@@ -66,9 +66,9 @@ void filetime2(void)
 	struct stat buf;
 	int check = 0;
 
-	stat("text", &buf);
+	stat("text2", &buf);
 
-	check = stat("text", &stat1);
+	check = stat("text2", &stat2);
 
 	if (check != 0) {
 		printf("Error\n");
