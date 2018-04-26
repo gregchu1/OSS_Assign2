@@ -73,7 +73,7 @@ void filetime2(void)
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(void)
 {
-	FILE *file1;
+/*	FILE *file1;
 	file1 = fopen("text1", "r");
 	fseek(file1, 0, SEEK_END);
 	int fileLength1 = ftell(file1);
@@ -92,11 +92,23 @@ void sizecmp(void)
 	fclose(file1);
 	fclose(file2);
 	return;
+*/
+	int text1_size;
+	int text2_size;
+
+	text1_size = stat.st_size("text1");
+	text2_size = stat.st_size("text2");
+
+	if(text1_size > text2_size)
+		printf("text1 is bigger\n");
+	else
+		printf("text2 is bigger\n");
 }
 
 //두 개의 파일 블락 수를 비교하는 함수 작성
 void blockcmp(void)
 {
+
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
