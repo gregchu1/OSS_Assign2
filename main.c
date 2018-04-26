@@ -40,26 +40,26 @@ int main(void)
 void filestat1(void)
 {
 	int check = 0;
-	check = stat("text1", &stat1);
-	
+	check = stat("test1", &stat1);
+
 	if(check != 0)
 	{
 		printf("Error\n");
-		return;
 	}
+	return;
 }
 
 //파일 2의 정보를 가져오는 함수 작성
 void filestat2(void)
-{	
+{
 	int check = 0;
 	check = stat("text2", &stat2);
-	
+
 	if(check != 0)
 	{
 		printf("Error\n");
-		return;
 	}
+	return;
 }
 
 //파일 1의 시간 정보를 가져오는 함수 작성
@@ -75,10 +75,12 @@ void filetime2(void)
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(void)
 {
+
 	//variable declare
 	long long int text1_size;
 	long long int text2_size;
 	//variable initialize
+
 	text1_size = stat1.st_size;
 	text2_size = stat2.st_size;
 
@@ -99,6 +101,7 @@ void blockcmp(void)
 	text1_block_size = stat1.st_blocks;
 	text2_block_size = stat2.st_blocks;
 
+
 	if(text1_block_size > text2_block_size)
 		printf("text1 is bigger\n");
 	else
@@ -112,7 +115,7 @@ void datecmp(void)
 	// get file time data
 	filetime1();
 	filetime2();
-	// compare tm_year 
+	// compare tm_year
 	if(time1->tm_year > time2->tm_year)
 		printf("time1 is early \n");
 	else if(time1->tm_year < time2->tm_year)
