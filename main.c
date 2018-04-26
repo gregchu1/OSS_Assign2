@@ -23,28 +23,22 @@ int main(void)
 	filestat2();
 	filetime1();
 	filetime2();
-	printf("size compare\n");
 	sizecmp();
-	printf("\n");
-	printf("block compare\n");
 	blockcmp();
-	printf("\n");
-	printf("date compare\n");
 	datecmp();
-	printf("\n");
-	printf("time compare\n");
 	timecmp();
 }
 
 //파일 1의 정보를 가져오는 함수 작성
 void filestat1(void)
 {
+	// check if there is no text1
 	int check = 0;
-	check = stat("test1", &stat1);
+	check = stat("text1", &stat1);
 
 	if(check != 0)
 	{
-		printf("Error\n");
+		printf("Error : there is no text1\n");
 	}
 	return;
 }
@@ -52,12 +46,13 @@ void filestat1(void)
 //파일 2의 정보를 가져오는 함수 작성
 void filestat2(void)
 {
+	// check if there is no text2
 	int check = 0;
 	check = stat("text2", &stat2);
 
 	if(check != 0)
 	{
-		printf("Error\n");
+		printf("Error : there is no text2\n");
 	}
 	return;
 }
@@ -65,65 +60,43 @@ void filestat2(void)
 //파일 1의 시간 정보를 가져오는 함수 작성
 void filetime1(void)
 {
-	struct tm* time1;
-	struct stat buf;
-	int check = 0;
-
-	stat("text1", &buf);
-
-	check = stat("text1", &stat1);
-
-	if (check != 0) {
-		printf("Error\n");
-	}
-
-	time1 = localtime(&buf.st_mtime);
-
+	time1 = localtime(&stat1.st_mtime);
 	return;
 }
 
 //파일 2의 시간 정보를 가져오는 함수 작성
 void filetime2(void)
 {
-	struct tm* time2;
-	struct stat buf;
-	int check = 0;
-
-	stat("text2", &buf);
-
-	check = stat("text2", &stat2);
-
-	if (check != 0) {
-		printf("Error\n");
-	}
-
-	time2 = localtime(&buf.st_mtime);
-
+	time2 = localtime(&stat2.st_mtime);
 	return;
 }
 
 //두 개의 파일 크기를 비교하는 함수 작성
 void sizecmp(void)
 {
+	printf("size compare\n");
 	//variable declare
 	long long int text1_size;
 	long long int text2_size;
+	
 	//variable initialize
 	text1_size = stat1.st_size;
 	text2_size = stat2.st_size;
-
 	if(text1_size > text2_size)
 		printf("text1 is bigger\n");
-	else if
+	else if(text1_size < text2_size)
 		printf("text2 is bigger\n");
 	else
-		printf("same size");
+		printf("same size\n");
+
+	printf("\n");
 	return;
 }
 
 //두 개의 파일 블락 수를 비교하는 함수 작성
 void blockcmp(void)
 {
+	printf("block compare\n");
 	//variable declare
 	long long int text1_block_size;
 	long long int text2_block_size;
@@ -133,16 +106,19 @@ void blockcmp(void)
 
 	if(text1_block_size > text2_block_size)
 		printf("text1 is bigger\n");
-	else if
+	else if(text1_block_size < text2_block_size)
 		printf("text2 is bigger\n");
 	else
-			printf("same size");
+		printf("same size\n");
+
+	printf("\n");
 	return;
 }
 
 //두 개의 파일 수정 날짜를 비교하는 함수 작성
 void datecmp(void)
 {
+	printf("date compare\n");
 	// compare tm_mon
 	if(time1->tm_mon > time2->tm_mon)
 		printf("time1 is early \n");
@@ -158,11 +134,13 @@ void datecmp(void)
 		else
 			printf("same time \n");
 	}
+	printf("\n");
 }
 
 //두 개의 파일 수정 시간을 비교하는 함수 작성
 void timecmp(void)
 {
+	printf("time compare\n");
 	// compare hour
 	if(time1->tm_hour > time2->tm_hour)
 		printf("time1 is early \n");
@@ -177,5 +155,6 @@ void timecmp(void)
 		// same time
 		else
 			printf("same time \n");
+
 	}
 }
